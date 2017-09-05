@@ -3,6 +3,9 @@ const hbs = require('hbs');
 const fs = require('fs')
 const app = express();
 //dirname is the path of node-web-server
+//process env get all environment variable as key
+//value pair
+const port = process.env.PORT || 5000;
 hbs.registerPartials(__dirname+'/views/partials');
 app.set('View engine', 'hbs');
 
@@ -56,6 +59,6 @@ app.get('/setting', (req, res) => {
   })
 });
 
-app.listen(5000, () => {
-  console.log("listen");
+app.listen(port, () => {
+  console.log(`Server is up on ${port}`);
 })
